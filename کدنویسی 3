@@ -1,4 +1,3 @@
-
 first_input = input().split()
 t = int(first_input[0])
 target = first_input[1]
