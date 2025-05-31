@@ -1,4 +1,3 @@
-'''python 
 list=[0,0,0]
 
 class polynomial():
