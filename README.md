@@ -1,28 +1,28 @@
-list=[0,0,0]
+import re
 
-class polynomial():
-    list1=[0,0,0]
+def is_spam(word):
+    uppercase_count = sum(1 for c in word if c.isupper())
+    if uppercase_count > 2:
+        return True
 
-    def plus(self):
-        deg1 = int(input("enter deg1"))
-        for i in range(0, deg1 + 1):
-            self.list1[i] += int(input("your number"))
+    word_lower = word.lower()
 
-    def co(self):
-        print(int(self.list1.count(0)))
+    for char in word_lower:
+        if word_lower.count(char) >= 3:
+            return True
 
-    def __str__(self):
-        p = str(self.list1)
-        return p
+    vowels = "aeiou"
+    if not any(v in word_lower for v in vowels):
+        return True
 
+    if not re.fullmatch(r"[a-zA-Z]+", word):
+        return True
 
-deg = int(input("enter degree"))
-for i in range(0, deg + 1):
-    list[i] = int(input("enter your number"))
+    return False
 
-p1 = polynomial()
-p1.list1 = list
-print(str(p1))
-p1.plus()
-print(str(p1))
-p1.co()
+text = input("متن را وارد کنید: ")
+words = text.split()
+
+for word in words:
+    if is_spam(word):
+        print(f"'{word}' -> spam")
