@@ -1,0 +1,16 @@
+
+first_input = input().split()
+t = int(first_input[0])
+target = first_input[1]
+
+for _ in range(t):
+    word = input().strip()
+    valid = True
+    for ch in target:
+        if ch not in word:
+            valid = False
+            break
+    if valid:
+        print("YES")
+    else:
+        print("NO")
